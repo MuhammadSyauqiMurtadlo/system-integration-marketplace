@@ -1,0 +1,47 @@
+NAMA - NAMA PARAMETER DARI TUGAS PERBAIKAN UTS
+
+1.
+min_stock
+max_stock
+page
+pagination
+
+2.
+tahun_awal
+tahun_akhir
+page
+pagination
+
+3.
+bulan
+page
+pagination
+
+4.
+page
+pagination
+
+5.
+tahun
+nominal
+page
+pagination
+
+6.
+page
+pagination
+
+7.
+Tidak ada Parameter
+
+8.
+page
+pagination
+
+9.
+Tidak ada Parameter
+
+10.
+page
+pagination
+
