@@ -1,0 +1,101 @@
+## 📘 Dokumentasi Singkat API - MarketplaceController (Laravel)
+
+### 🔧 Deskripsi Umum
+
+Controller ini digunakan untuk mengambil data dari berbagai tabel (`products`, `orders`, `payments`, `customers`) dengan fitur filter, pagination, dan respon JSON yang sudah terstruktur. Setiap endpoint mewakili jenis data yang berbeda di "pasar backend".
+
+---
+
+### 📌 Endpoint List
+
+#### 1. **POST /produk-classic-cars**
+
+* **Deskripsi**: Menampilkan produk dengan kategori *Classic Cars* dan filter jumlah stok.
+* **Query Param**:
+
+  * `min_stock` (optional, default: 1700)
+  * `max_stock` (optional, default: 2800)
+  * `page` (required)
+  * `pagination` (required)
+
+---
+
+#### 2. **POST /produk-era-60an**
+
+* **Deskripsi**: Menampilkan produk yang di-*parse* tahunnya dari `productName` (tahun 196x hingga saat ini).
+* **Query Param**:
+
+  * `tahun_awal` (optional)
+  * `tahun_akhir` (optional)
+  * `page`, `pagination` (required)
+
+---
+
+#### 3. **POST /order-dalam-1-bulan**
+
+* **Deskripsi**: Menampilkan data pesanan yang dikirim dalam jangka waktu maksimal 31 hari.
+* **Query Param**:
+
+  * `bulan` (optional)
+  * `page`, `pagination` (required)
+
+---
+
+#### 4. **POST /order-tanpa-pengiriman**
+
+* **Deskripsi**: Menampilkan pesanan yang belum dikirim (`shippedDate` NULL).
+* **Query Param**:
+
+  * `page`, `pagination` (required)
+
+---
+
+#### 5. **POST /pembayaran-2004-di-atas-5000**
+
+* **Deskripsi**: Menampilkan pembayaran tahun 2004 yang nominalnya lebih dari angka tertentu.
+* **Query Param**:
+
+  * `tahun` (optional, default: 2004)
+  * `nominal` (optional, default: 5000)
+  * `page`, `pagination` (required)
+
+---
+
+#### 6. **POST /pembayaran-2004-bulan-tertentu**
+
+* **Deskripsi**: Menampilkan pembayaran di tahun 2004 untuk bulan: Mei, Juli, Agustus, dan November.
+* **Query Param**:
+
+  * `page`, `pagination` (required)
+
+---
+
+#### 7. **POST /7-pembayaran-terendah-2003**
+
+* **Deskripsi**: Menampilkan 7 pembayaran terendah di tahun 2003.
+* **Catatan**: Tidak menggunakan pagination karena hasilnya sudah dibatasi ke 7 data saja.
+
+---
+
+#### 8. **POST /pelanggan-tanpa-state**
+
+* **Deskripsi**: Menampilkan pelanggan yang tidak punya informasi `state` (NULL atau string kosong).
+* **Query Param**:
+
+  * `page`, `pagination` (required)
+
+---
+
+#### 9. **POST /pelanggan-credit-limit-tertinggi**
+
+* **Deskripsi**: Menampilkan 5 pelanggan dengan limit kredit tertinggi.
+* **Catatan**: Tidak menggunakan pagination (limit tetap 5).
+
+---
+
+#### 10. **POST /pelanggan-alamat-kedua-saja**
+
+* **Deskripsi**: Menampilkan pelanggan yang memiliki `addressLine2` (alamat kedua).
+* **Query Param**:
+
+  * `page`, `pagination` (required)
